@@ -22,10 +22,10 @@ class Book(models.Model):
 
     def __str__(self):
         """
-        Magic method is redefined to show all information about Book.
-        :return: book id, book name, book description, book count, book authors
+        Magic method is redefined to show a short readable name of the Book.
+        :return: book name
         """
-        return f"'id': {self.id}, 'name': '{self.name}', 'description': '{self.description}', 'count': {self.count}, 'authors': {[author.id for author in self.authors.all()]}"
+        return self.name
 
     def __repr__(self):
         """

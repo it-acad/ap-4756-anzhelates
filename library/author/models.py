@@ -23,11 +23,11 @@ class Author(models.Model):
 
     def __str__(self):
         """
-        Magic method is redefined to show a short readable name of the Author.
-        :return: author name and surname
+        Magic method is redefined to show a short readable name of the Book.
+        :return: book name
         """
-        return f"{self.name} {self.surname}"
-
+        return self.name
+    
     def __repr__(self):
         """
         This magic method is redefined to show class and id of Author object.

@@ -5,15 +5,16 @@ from .models import Order
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
     list_display = ('id', 'get_book', 'get_user', 'created_at', 'plated_end_at', 'end_at')
-    list_filter = ('book__id', 'book__name', 'created_at', 'plated_end_at')
+    list_filter = ('book__id', 'book__name', 'book__authors', 'created_at', 'plated_end_at')
     ordering = ('id',)
+    readonly_fields = ('created_at',)
 
     fieldsets = (
         ('Order Details', {
-            'fields': ('book', 'user')
+            'fields': ('book', 'user', 'created_at', 'plated_end_at')
         }),
-        ('Dates', {
-            'fields': ('created_at', 'plated_end_at', 'end_at')
+        ('Return Status', {
+            'fields': ('end_at',)
         }),
     )
 

@@ -86,13 +86,11 @@ class CustomUser(AbstractBaseUser):
 
     def __str__(self):
         """
-        Magic method is redefined to show all information about CustomUser.
-        :return: user id, user first_name, user middle_name, user last_name,
-                 user email, user password, user updated_at, user created_at,
-                 user role, user is_active
+        Magic method is redefined to show a short readable name of the CustomUser.
+        :return: user email
         """
-        return f"'id': {self.id}, 'first_name': '{self.first_name}', 'middle_name': '{self.middle_name}', 'last_name': '{self.last_name}', 'email': '{self.email}', 'created_at': {int(self.created_at.timestamp())}, 'updated_at': {int(self.updated_at.timestamp())}, 'role': {self.role}, 'is_active': {self.is_active}"  # 'password': '{self.password}', \
-
+        return self.email
+    
     def __repr__(self):
         """
         This magic method is redefined to show class and id of CustomUser object.
